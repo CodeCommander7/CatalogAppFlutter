@@ -1,4 +1,6 @@
+import 'package:catalog_app/pages/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:catalog_app/pages/loginpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,17 +10,15 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
-    int day = 30;
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: Text("Catalog App"),
-      ),
-      body: Center(
-          child: Container(
-        child: Text("welcome to $day days flutter course by priyanshu"),
-      )),
-      drawer: Drawer(),
-    ));
+      //  home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      routes: {
+        "/": (context) => HomePage(),
+        "/login": (context) => Login(),
+      },
+    );
   }
 }
